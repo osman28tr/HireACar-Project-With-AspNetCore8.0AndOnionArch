@@ -25,4 +25,8 @@
     <ProjectReference Include="..\..\Infrastructure\HireACar.Persistance\HireACar.Persistance.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
