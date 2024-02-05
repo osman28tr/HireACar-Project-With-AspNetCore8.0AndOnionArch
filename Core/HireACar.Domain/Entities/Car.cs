@@ -9,7 +9,6 @@ namespace HireACar.Domain.Entities
     public class Car: BaseEntity
     {
         public int BrandId { get; set; }
-        public int ModelId { get; set; }
         public string CoverImageUrl { get; set; }
         public string BodyImageUrl { get; set; }
         public string Km { get; set; }
@@ -19,9 +18,8 @@ namespace HireACar.Domain.Entities
         public byte Luggage { get; set; }
         public FuelType Fuel { get; set; }
         public Brand Brand { get; set; }
-        public Model Model { get; set; }
-        public List<CarFeature> CarFeatures { get; set; }
-        public List<CarPricing> CarPricings { get; set; }
+        public List<Feature> Features { get; set; }
+        public List<Pricing> Pricings { get; set; }
         public enum TransmissionType
         {
             Automatic,
