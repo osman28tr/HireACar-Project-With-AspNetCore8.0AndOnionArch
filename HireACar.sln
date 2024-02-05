@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{46A54DEB-274C-447E-AABB-D52441191CAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireACar.Domain", "Core\HireACar.Domain\HireACar.Domain.csproj", "{A2B07762-2198-4E17-BBB1-1B03B57A4298}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2B07762-2198-4E17-BBB1-1B03B57A4298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2B07762-2198-4E17-BBB1-1B03B57A4298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2B07762-2198-4E17-BBB1-1B03B57A4298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2B07762-2198-4E17-BBB1-1B03B57A4298}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2B07762-2198-4E17-BBB1-1B03B57A4298} = {46A54DEB-274C-447E-AABB-D52441191CAC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C83D3B08-B8A9-4E15-947A-9E6D5150D216}
+	EndGlobalSection
+EndGlobal
