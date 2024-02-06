@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\HireACar.Application\HireACar.Application.csproj" />
     <ProjectReference Include="..\..\Core\HireACar.Domain\HireACar.Domain.csproj" />
   </ItemGroup>
 
