@@ -1,3 +1,5 @@
+using HireACar.Application;
+using HireACar.Persistance;
 using HireACar.Persistance.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,10 @@ builder.Services.AddDbContext<HireACarContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"));
 });
+builder.Services.AddApplicationRegistration();
+builder.Services.AddPersistanceRegistration();
+builder.Services.AddScoped<DbContext, HireACarContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
