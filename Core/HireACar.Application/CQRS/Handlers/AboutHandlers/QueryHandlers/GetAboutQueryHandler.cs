@@ -8,10 +8,11 @@ using HireACar.Application.Abstract;
 using HireACar.Application.CQRS.Queries.AboutQueries;
 using HireACar.Application.CQRS.Results.AboutResults.QueryResults;
 using HireACar.Domain.Entities;
+using MediatR;
 
 namespace HireACar.Application.CQRS.Handlers.AboutHandlers.QueryHandlers
 {
-    public class GetAboutQueryHandler
+    public class GetAboutQueryHandler:IRequestHandler<GetAboutQuery,GetAboutQueryResult>
     {
         private readonly IRepository<About> _repository;
         private readonly IMapper _mapper;
@@ -21,7 +22,7 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.QueryHandlers
             _mapper = mapper;
         }
 
-        public async Task<GetAboutQueryResult> Handle(GetAboutQuery request)
+        public async Task<GetAboutQueryResult> Handle(GetAboutQuery request, CancellationToken cancellationToken)
         {
             var about = await _repository.GetByIdAsync(1);
             var mappingAbout = _mapper.Map<GetAboutQueryResult>(about);
