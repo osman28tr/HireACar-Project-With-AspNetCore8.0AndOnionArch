@@ -8,6 +8,7 @@ namespace HireACar.Application.CQRS.Results.AboutResults.CommandResults
 {
     public class AddedAboutCommandResult
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }

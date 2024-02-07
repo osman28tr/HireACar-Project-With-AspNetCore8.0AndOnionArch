@@ -8,7 +8,7 @@ using Microsoft.Extensions.Caching.Distributed;
 
 namespace HireACar.Insfrastructure.Caching.Redis
 {
-    public class RsCacheService:IRsCacheService
+    public class RsCacheService:ICacheService
     {
         private readonly IDistributedCache _distributedCache;
         public RsCacheService(IDistributedCache distributedCache)

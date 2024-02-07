@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HireACar.Insfrastructure.Caching.Abstract;
 using HireACar.Insfrastructure.Caching.Redis.About;
+using HireACar.Insfrastructure.Caching.Redis.About.Abstract;
 
 namespace HireACar.Insfrastructure
 {

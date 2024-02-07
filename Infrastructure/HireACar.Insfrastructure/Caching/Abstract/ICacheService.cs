@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HireACar.Insfrastructure.Caching.Abstract
 {
-    public interface IRsCacheService
+    public interface ICacheService
     {
         void Set(string key, string value);
         string Get(string key);
