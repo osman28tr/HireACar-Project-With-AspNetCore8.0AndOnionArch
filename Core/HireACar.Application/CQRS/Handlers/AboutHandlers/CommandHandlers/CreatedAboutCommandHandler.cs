@@ -14,9 +14,9 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
 {
     public class CreatedAboutCommandHandler:IRequestHandler<CreatedAboutCommand,AddedAboutCommandResult>
     {
-        private readonly IRepository<About> _repository;
+        private readonly IAboutRepository _repository;
         private readonly IMapper _mapper;
-        public CreatedAboutCommandHandler(IRepository<About> repository,IMapper mapper)
+        public CreatedAboutCommandHandler(IAboutRepository repository,IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

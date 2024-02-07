@@ -14,9 +14,9 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.QueryHandlers
 {
     public class GetAboutQueryHandler:IRequestHandler<GetAboutQuery,GetAboutQueryResult>
     {
-        private readonly IRepository<About> _repository;
+        private readonly IAboutRepository _repository;
         private readonly IMapper _mapper;
-        public GetAboutQueryHandler(IRepository<About> repository, IMapper mapper)
+        public GetAboutQueryHandler(IAboutRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
