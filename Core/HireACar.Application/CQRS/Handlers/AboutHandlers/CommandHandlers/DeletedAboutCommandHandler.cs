@@ -23,7 +23,7 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
         public async Task<DeletedAboutCommand> Handle(DeletedAboutCommand request, CancellationToken cancellationToken)
         {
             var deletedAbout = await _repository.GetByIdAsync(request.Id);
-            var result = _repository.Delete(deletedAbout);
+            var result = await _repository.Delete(deletedAbout);
             var mappingAbout = _mapper.Map<DeletedAboutCommand>(result);
             return mappingAbout;
         }
