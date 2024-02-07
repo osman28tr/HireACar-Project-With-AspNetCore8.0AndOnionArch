@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireACar.Application.CQRS.Results.AboutResults
+namespace HireACar.Application.CQRS.Results.AboutResults.CommandResults
 {
-    public class GetAboutQueryResult
+    public class AddedAboutCommandResult
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
     }
 }
