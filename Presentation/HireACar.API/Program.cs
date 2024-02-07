@@ -1,4 +1,5 @@
 using HireACar.Application;
+using HireACar.Insfrastructure;
 using HireACar.Persistance;
 using HireACar.Persistance.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,11 @@ builder.Services.AddDbContext<HireACarContext>(opt =>
 builder.Services.AddApplicationRegistration();
 builder.Services.AddPersistanceRegistration();
 builder.Services.AddScoped<DbContext, HireACarContext>();
-
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+});
+builder.Services.AddInfrastructureRegistration();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
