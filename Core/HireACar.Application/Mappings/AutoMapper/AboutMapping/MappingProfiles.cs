@@ -7,9 +7,9 @@ using AutoMapper;
 using HireACar.Application.CQRS.Results.AboutResults.QueryResults;
 using HireACar.Domain.Entities;
 
-namespace HireACar.Application.Mappings.AboutMapping
+namespace HireACar.Application.Mappings.AutoMapper.AboutMapping
 {
-    public class MappingProfiles:Profile
+    public class MappingProfiles : Profile
     {
         public MappingProfiles()
         {

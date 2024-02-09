@@ -14,6 +14,7 @@ namespace HireACar.Persistance
         public static IServiceCollection AddPersistanceRegistration(this IServiceCollection services)
         {
             services.AddScoped<IAboutRepository, AboutRepository>();
+            services.AddScoped<IWebSiteSettingRepository, WebSiteSettingRepository>();
             return services;
         }
     }
