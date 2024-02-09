@@ -14,14 +14,16 @@ namespace HireACar.API.Controllers
         public async Task<IActionResult> Get()
         {
             var webSiteSettings = await Mediator.Send(new GetWebSiteSettingQuery());
-            return Ok(new { Message = "Web site ayarı ile ilgili veriler başarıyla alındı.", data = webSiteSettings });
+            return webSiteSettings == null
+                ? NotFound("Web site ayarları bulunamadı.")
+                : Ok(new { Message = "Web site ayarı ile ilgili veriler başarıyla alındı.", data = webSiteSettings });
         }
 
         [HttpPost]
         public async Task<IActionResult> Update([FromBody] UpdatedWebSiteSettingCommand updatedWebSiteSettingCommand)
         {
             await Mediator.Send(updatedWebSiteSettingCommand);
-            return Ok(new { Message = "Web site ayarlarınız başarıyla güncellendi." });
+            return Content("Web site ayarlarınız başarıyla güncellendi.");
         }
     }
 }

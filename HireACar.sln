@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireACar.API", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireACar.Application", "Core\HireACar.Application\HireACar.Application.csproj", "{ACED8E38-EB20-4EDB-AE59-EFC02FC9B1B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireACar.Insfrastructure", "Infrastructure\HireACar.Insfrastructure\HireACar.Insfrastructure.csproj", "{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireACar.Insfrastructure", "Infrastructure\HireACar.Insfrastructure\HireACar.Insfrastructure.csproj", "{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{DEC7531F-05C0-4317-85C4-D6018A189F16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireACar.UI", "Frontends\HireACar.UI\HireACar.UI.csproj", "{640C0E08-7155-4FF0-9D37-E5CA677C3CC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640C0E08-7155-4FF0-9D37-E5CA677C3CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640C0E08-7155-4FF0-9D37-E5CA677C3CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640C0E08-7155-4FF0-9D37-E5CA677C3CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640C0E08-7155-4FF0-9D37-E5CA677C3CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{9E2434FA-DA0B-451E-9A12-25EECA14CBC9} = {7B19F8D2-AC86-442B-A67E-1A8566E02074}
 		{ACED8E38-EB20-4EDB-AE59-EFC02FC9B1B2} = {46A54DEB-274C-447E-AABB-D52441191CAC}
 		{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9} = {C5719D52-CED5-4AB5-9D71-63945D804C03}
+		{640C0E08-7155-4FF0-9D37-E5CA677C3CC4} = {DEC7531F-05C0-4317-85C4-D6018A189F16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C83D3B08-B8A9-4E15-947A-9E6D5150D216}
