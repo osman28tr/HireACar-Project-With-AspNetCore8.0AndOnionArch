@@ -9,6 +9,7 @@ namespace HireACar.Application.CQRS.Results.BrandResults.QueryResults
 {
     public class GetListBrandQueryResult
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

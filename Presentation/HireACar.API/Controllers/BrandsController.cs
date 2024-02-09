@@ -1,4 +1,5 @@
-﻿using HireACar.API.Helpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using HireACar.API.Helpers;
 using HireACar.Application.CQRS.Queries.BrandQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
