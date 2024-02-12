@@ -46,5 +46,14 @@ namespace HireACar.API.Controllers
                 ? StatusCode(500, "Silme işlemi başarısız oldu.")
                 : Ok(new { Message = $"{deletedBrand.Name} markanız başarıyla silindi." });
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdatedBrandCommand updatedBrandCommand)
+        {
+            var updatedBrand = await Mediator.Send(updatedBrandCommand);
+            return updatedBrand == null
+                ? StatusCode(500, "Güncelleme işlemi başarısız oldu.")
+                : Ok(new { Message = $"{updatedBrand.Name} markanız başarıyla güncellendi." });
+        }
     }
 }
