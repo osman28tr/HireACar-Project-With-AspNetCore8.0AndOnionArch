@@ -34,8 +34,17 @@ namespace HireACar.API.Controllers
         {
             var addedBrand = await Mediator.Send(createdBrandCommand);
             return addedBrand == null
-                ? BadRequest()
+                ? StatusCode(500, "Ekleme işlemi başarısız oldu.")
                 : Created("", new { Message = $"{addedBrand.Name} markanız başarıyla eklendi." });
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deletedBrand = await Mediator.Send(new DeletedBrandCommand { BrandId = id });
+            return deletedBrand == null
+                ? StatusCode(500, "Silme işlemi başarısız oldu.")
+                : Ok(new { Message = $"{deletedBrand.Name} markanız başarıyla silindi." });
         }
     }
 }

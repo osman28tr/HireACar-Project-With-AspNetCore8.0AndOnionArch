@@ -22,8 +22,8 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
         }
         public async Task<DeletedAboutCommand> Handle(DeletedAboutCommand request, CancellationToken cancellationToken)
         {
-            var deletedAbout = await _repository.GetByIdAsync(request.Id);
-            var result = await _repository.Delete(deletedAbout);
+            var deletedAbout = await _repository.GetAsync(x => x.Id == request.Id);
+            var result = await _repository.DeleteAsync(deletedAbout);
             var mappingAbout = _mapper.Map<DeletedAboutCommand>(result);
             return mappingAbout;
         }
