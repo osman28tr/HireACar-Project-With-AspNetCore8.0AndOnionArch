@@ -9,6 +9,7 @@ using HireACar.Application.CQRS.Queries.AboutQueries;
 using HireACar.Application.CQRS.Results.AboutResults.QueryResults;
 using HireACar.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace HireACar.Application.CQRS.Handlers.AboutHandlers.QueryHandlers
 {
@@ -24,7 +25,7 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.QueryHandlers
 
         public async Task<GetAboutQueryResult> Handle(GetAboutQuery request, CancellationToken cancellationToken)
         {
-            var about = await _repository.GetByIdAsync(1);
+            var about = await _repository.Query().FirstOrDefaultAsync();
             var mappingAbout = _mapper.Map<GetAboutQueryResult>(about);
             return mappingAbout;
         }
