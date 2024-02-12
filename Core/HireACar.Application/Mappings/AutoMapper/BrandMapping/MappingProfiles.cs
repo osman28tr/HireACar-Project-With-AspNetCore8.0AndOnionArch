@@ -15,6 +15,7 @@ namespace HireACar.Application.Mappings.AutoMapper.BrandMapping
         public MappingProfiles()
         {
             CreateMap<GetListBrandQueryResult, Brand>().ReverseMap();
+            CreateMap<GetBrandByIdQueryResult, Brand>().ReverseMap();
         }
     }
 }

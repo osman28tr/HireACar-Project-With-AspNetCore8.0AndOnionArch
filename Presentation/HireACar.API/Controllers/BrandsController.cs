@@ -18,5 +18,14 @@ namespace HireACar.API.Controllers
                 ? NotFound()
                 : Ok(new { Message = "Marka verileri başarıyla getirildi.", data = result });
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBrandById(int id)
+        {
+            var result = await Mediator.Send(new GetBrandByIdQuery { BrandId = id });
+            return result == null
+                ? NotFound()
+                : Ok(new { Message = "Marka verisi başarıyla getirildi.", data = result });
+        }
     }
 }
