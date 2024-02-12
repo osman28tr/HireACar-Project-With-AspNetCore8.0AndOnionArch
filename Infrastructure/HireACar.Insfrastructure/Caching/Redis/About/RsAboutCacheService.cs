@@ -32,7 +32,7 @@ namespace HireACar.Insfrastructure.Caching.Redis.About
 
         public async Task<GetAboutQueryResult> GetCacheAsync()
         {
-            int id = _aboutRepository.GetAllAsync().Result.FirstOrDefault().Id;
+            int id = _aboutRepository.GetAllAsync(null).Result.FirstOrDefault().Id;
             var about = await _distributedCache.GetStringAsync($"about:{id}");
             if (about != null)
             {

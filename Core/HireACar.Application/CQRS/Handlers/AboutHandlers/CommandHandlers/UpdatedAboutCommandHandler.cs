@@ -12,7 +12,6 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
 {
     public class UpdatedAboutCommandHandler : IRequestHandler<UpdatedAboutCommand>
     {
-        public int Id { get; set; }
         private readonly IAboutRepository _repository;
         private readonly IMapper _mapper;
         public UpdatedAboutCommandHandler(IAboutRepository repository, IMapper mapper)
@@ -22,7 +21,7 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
         }
         public async Task Handle(UpdatedAboutCommand request, CancellationToken cancellationToken)
         {
-            var about = await _repository.GetByIdAsync(Id);
+            var about = await _repository.GetAsync(x => x.Id == request.Id);
             await _repository.UpdateAsync(about);
         }
     }
