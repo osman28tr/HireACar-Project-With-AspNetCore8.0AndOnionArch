@@ -23,7 +23,7 @@ namespace HireACar.Application.CQRS.Handlers.BrandHandlers.QueryHandlers
 
         public async Task<GetBrandByIdQueryResult> Handle(GetBrandByIdQuery request, CancellationToken cancellationToken)
         {
-            var brand = await _brandRepository.GetByIdAsync(request.BrandId);
+            var brand = await _brandRepository.GetAsync(x => x.Id == request.BrandId);
             var brandMapping = _mapper.Map<GetBrandByIdQueryResult>(brand);
             return brandMapping;
         }

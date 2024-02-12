@@ -24,7 +24,7 @@ namespace HireACar.Application.CQRS.Handlers.BrandHandlers.QueryHandlers
 
         public async Task<List<GetListBrandQueryResult>> Handle(GetListBrandQuery request, CancellationToken cancellationToken)
         {
-            var brands = await _brandRepository.GetAllAsync();
+            var brands = await _brandRepository.GetAllAsync(null);
             var brandsMapping = _mapper.Map<List<GetListBrandQueryResult>>(brands);
             return brandsMapping;
         }

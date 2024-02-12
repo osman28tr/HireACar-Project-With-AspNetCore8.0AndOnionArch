@@ -23,7 +23,7 @@ namespace HireACar.Application.CQRS.Handlers.WebSiteSettingHandlers.QueryHandler
         }
         public async Task<GetWebSiteSettingQueryResult> Handle(GetWebSiteSettingQuery request, CancellationToken cancellationToken)
         {
-            var webSiteSetting = _webSiteSettingRepository.GetAllAsync().Result.FirstOrDefault();
+            var webSiteSetting = _webSiteSettingRepository.GetAllAsync(null).Result.FirstOrDefault();
             var webSiteSettingMapping = _mapper.Map<GetWebSiteSettingQueryResult>(webSiteSetting);
             return webSiteSettingMapping;
         }
