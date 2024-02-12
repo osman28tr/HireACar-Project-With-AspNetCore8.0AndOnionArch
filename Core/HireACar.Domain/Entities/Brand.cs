@@ -8,6 +8,11 @@ namespace HireACar.Domain.Entities
 {
     public class Brand:BaseEntity
     {
+        public Brand()
+        {
+            Cars = new List<Car>();
+            Models = new List<Model>();
+        }
         public string Name { get; set; }
         public List<Car> Cars { get; set; }
         public List<Model> Models { get; set; }

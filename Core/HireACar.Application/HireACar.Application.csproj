@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Handlers\BrandHandlers\CommandHandlers\" />
-    <Folder Include="CQRS\Results\BrandResults\CommandResults\" />
     <Folder Include="CQRS\Results\WebSiteSettingResults\CommandResults\" />
   </ItemGroup>
 

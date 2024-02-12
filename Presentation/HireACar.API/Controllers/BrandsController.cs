@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HireACar.API.Helpers;
+using HireACar.Application.CQRS.Commands.BrandCommands;
 using HireACar.Application.CQRS.Queries.BrandQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,15 @@ namespace HireACar.API.Controllers
             return result == null
                 ? NotFound()
                 : Ok(new { Message = "Marka verisi başarıyla getirildi.", data = result });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBrand([FromBody] CreatedBrandCommand createdBrandCommand)
+        {
+            var addedBrand = await Mediator.Send(createdBrandCommand);
+            return addedBrand == null
+                ? BadRequest()
+                : Created("", new { Message = $"{addedBrand.Name} markanız başarıyla eklendi." });
         }
     }
 }
