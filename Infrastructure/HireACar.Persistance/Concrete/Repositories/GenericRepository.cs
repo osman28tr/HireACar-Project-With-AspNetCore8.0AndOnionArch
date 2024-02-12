@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using HireACar.Application.Abstract;
@@ -18,13 +19,19 @@ namespace HireACar.Persistance.Concrete.Repositories
         {
             _context = context;
         }
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetAsync(Expression<Func<T, bool>> predicate)
         {
-            var result = await _context.Set<T>().FindAsync(id);
+            var result = await _context.Set<T>().FirstOrDefaultAsync(predicate);
             return result ?? null;
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public IQueryable<T> Query()
+        {
+            
+            return _context.Set<T>();
+        }
+
+        public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> predicate)
         {
             return await _context.Set<T>().ToListAsync();
         }
@@ -43,7 +50,7 @@ namespace HireACar.Persistance.Concrete.Repositories
             return entity;
         }
 
-        public async Task<T> Delete(T entity)
+        public async Task<T> DeleteAsync(T entity)
         {
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
