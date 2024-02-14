@@ -16,6 +16,7 @@ namespace HireACar.Persistance
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IWebSiteSettingRepository, WebSiteSettingRepository>();
             services.AddScoped<IBrandRepository, BrandRepository>();
+            services.AddScoped<ICarRepository, CarRepository>();
             return services;
         }
     }
