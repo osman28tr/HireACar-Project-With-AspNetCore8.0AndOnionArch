@@ -7,3 +7,5 @@ Generic Repository Design Pattern, CQRS Design Pattern, UnitOfWork Design Patter
 <h3>2. General Outlines of the Architecture Used in the Project</h3>
 <img src="Presentation/HireACar.API/wwwroot/ProjectArch/HireACarArch2.PNG" height="400px" width="650px">
 <h3>3. Language and Development Environment Used: C# - Asp.Net Core 8.0</h3>
+
+<b>Note:</b> The application is currently under development, some of the technologies in question may not have been implemented yet.
