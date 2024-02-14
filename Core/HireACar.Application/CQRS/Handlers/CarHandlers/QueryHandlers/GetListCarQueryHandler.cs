@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HireACar.Application.CQRS.Handlers.CarHandlers.QueryHandlers
 {
-    public class GetListCarQueryHandler:IRequestHandler<GetListCarQuery,List<GetListCarQueryResult>>
+    public class GetListCarQueryHandler : IRequestHandler<GetListCarQuery, List<GetListCarQueryResult>>
     {
         private readonly ICarRepository _carRepository;
         private readonly IMapper _mapper;
@@ -23,7 +23,7 @@ namespace HireACar.Application.CQRS.Handlers.CarHandlers.QueryHandlers
         }
         public async Task<List<GetListCarQueryResult>> Handle(GetListCarQuery request, CancellationToken cancellationToken)
         {
-            var cars = await _carRepository.Query()/*.Include(x => x.Features).Include(x => x.Pricings)*/
+            var cars = await _carRepository.Query().Include(x => x.CarFeatures).ThenInclude(f => f.Feature).Include(x => x.CarPricings).ThenInclude(p => p.Pricing)
                 .Include(x => x.Brand).ToListAsync();
             var carsMapping = _mapper.Map<List<GetListCarQueryResult>>(cars);
             return carsMapping;
