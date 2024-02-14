@@ -23,7 +23,7 @@ namespace HireACar.Application.CQRS.Handlers.CarHandlers.QueryHandlers
         }
         public async Task<List<GetListCarQueryResult>> Handle(GetListCarQuery request, CancellationToken cancellationToken)
         {
-            var cars = await _carRepository.Query().Include(x => x.Features).Include(x => x.Pricings)
+            var cars = await _carRepository.Query()/*.Include(x => x.Features).Include(x => x.Pricings)*/
                 .Include(x => x.Brand).ToListAsync();
             var carsMapping = _mapper.Map<List<GetListCarQueryResult>>(cars);
             return carsMapping;

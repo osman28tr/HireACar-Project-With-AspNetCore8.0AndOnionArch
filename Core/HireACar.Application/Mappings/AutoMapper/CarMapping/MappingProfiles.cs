@@ -15,12 +15,12 @@ namespace HireACar.Application.Mappings.AutoMapper.CarMapping
         public MappingProfiles()
         {
             CreateMap<GetListCarQueryResult, Car>()
-                .ForMember(x => x.Features, opt => opt.MapFrom(src => src.Features))
-                .ForMember(x => x.Pricings, opt => opt.MapFrom(src => src.Pricings))
+            //    .ForMember(x => x.Features, opt => opt.MapFrom(src => src.Features))
+            //    .ForMember(x => x.Pricings, opt => opt.MapFrom(src => src.Pricings))
                 .ForMember(x => x.Brand, opt => opt.MapFrom(src => src.CarWithBrandViewModel))
                 .ReverseMap();
-            CreateMap<CarWithFeatureViewModel, Feature>().ReverseMap();
-            CreateMap<CarWithPricingViewModel, Pricing>().ReverseMap();
+            //CreateMap<CarWithFeatureViewModel, Feature>().ReverseMap();
+            //CreateMap<CarWithPricingViewModel, Pricing>().ReverseMap();
             CreateMap<CarWithBrandViewModel, Brand>().ReverseMap();
         }
     }

@@ -4,6 +4,7 @@ using HireACar.Persistance.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HireACar.Persistance.Migrations
 {
     [DbContext(typeof(HireACarContext))]
-    partial class HireACarContextModelSnapshot : ModelSnapshot
+    [Migration("20240214182035_remove-relation-configuration-defaultconvention-in-carwithfeatureandpricing-table")]
+    partial class removerelationconfigurationdefaultconventionincarwithfeatureandpricingtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,36 +114,6 @@ namespace HireACar.Persistance.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("HireACar.Domain.Entities.CarFeature", b =>
-                {
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FeatureId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CarId", "FeatureId");
-
-                    b.HasIndex("FeatureId");
-
-                    b.ToTable("CarFeature");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.CarPricing", b =>
-                {
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PricingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CarId", "PricingId");
-
-                    b.HasIndex("PricingId");
-
-                    b.ToTable("CarPricing");
-                });
-
             modelBuilder.Entity("HireACar.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -188,23 +161,6 @@ namespace HireACar.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Contacts");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.Feature", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Features");
                 });
 
             modelBuilder.Entity("HireACar.Domain.Entities.Footer", b =>
@@ -273,23 +229,6 @@ namespace HireACar.Persistance.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("Models");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.Pricing", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pricings");
                 });
 
             modelBuilder.Entity("HireACar.Domain.Entities.Service", b =>
@@ -411,44 +350,6 @@ namespace HireACar.Persistance.Migrations
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("HireACar.Domain.Entities.CarFeature", b =>
-                {
-                    b.HasOne("HireACar.Domain.Entities.Car", "Car")
-                        .WithMany("CarFeatures")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HireACar.Domain.Entities.Feature", "Feature")
-                        .WithMany("CarFeatures")
-                        .HasForeignKey("FeatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Feature");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.CarPricing", b =>
-                {
-                    b.HasOne("HireACar.Domain.Entities.Car", "Car")
-                        .WithMany("CarPricings")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HireACar.Domain.Entities.Pricing", "Pricing")
-                        .WithMany("CarPricings")
-                        .HasForeignKey("PricingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Pricing");
-                });
-
             modelBuilder.Entity("HireACar.Domain.Entities.Model", b =>
                 {
                     b.HasOne("HireACar.Domain.Entities.Brand", "Brand")
@@ -465,23 +366,6 @@ namespace HireACar.Persistance.Migrations
                     b.Navigation("Cars");
 
                     b.Navigation("Models");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.Car", b =>
-                {
-                    b.Navigation("CarFeatures");
-
-                    b.Navigation("CarPricings");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.Feature", b =>
-                {
-                    b.Navigation("CarFeatures");
-                });
-
-            modelBuilder.Entity("HireACar.Domain.Entities.Pricing", b =>
-                {
-                    b.Navigation("CarPricings");
                 });
 #pragma warning restore 612, 618
         }

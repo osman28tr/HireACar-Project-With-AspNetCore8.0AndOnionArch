@@ -18,8 +18,8 @@ namespace HireACar.Domain.Entities
         public byte Luggage { get; set; }
         public FuelType Fuel { get; set; }
         public Brand Brand { get; set; }
-        public List<Feature> Features { get; set; }
-        public List<Pricing> Pricings { get; set; }
+        public List<CarFeature> CarFeatures { get; set; }
+        public List<CarPricing> CarPricings { get; set; }
         public enum TransmissionType
         {
             Automatic,
