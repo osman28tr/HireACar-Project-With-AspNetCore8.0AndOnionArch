@@ -16,6 +16,8 @@ namespace HireACar.Domain.Entities
         public TransmissionType Transmission { get; set; }
         public char Seat { get; set; }
         public byte Luggage { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsDeleted { get; set; }
         public FuelType Fuel { get; set; }
         public Brand Brand { get; set; }
         public List<CarFeature> CarFeatures { get; set; }

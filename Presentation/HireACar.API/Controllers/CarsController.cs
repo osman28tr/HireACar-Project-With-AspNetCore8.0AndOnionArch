@@ -42,5 +42,12 @@ namespace HireACar.API.Controllers
             await Mediator.Send(command);
             return Ok(new { Message = "Otomobiliniz başarıyla güncellendi." });
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await Mediator.Send(new DeletedCarCommand() { Id = id });
+            return Ok(new { Message = "Otomobiliniz yayından kaldırıldı. En kısa sürede sistemden silinecek." });
+        }
     }
 }
