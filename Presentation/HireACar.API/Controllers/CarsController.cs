@@ -11,7 +11,7 @@ namespace HireACar.API.Controllers
     public class CarsController : MediatrBaseController
     {
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetListCarQuery());
             return result.Count == 0
@@ -19,6 +19,12 @@ namespace HireACar.API.Controllers
                 : Ok(new { Message = "Otomobil verileri başarıyla getirildi.", data = result });
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var result = await Mediator.Send(new GetCarByIdQuery { Id = id });
+            return Ok(new { Message = "Otomobil verisi başarıyla getirildi.", data = result });
+        }
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreatedCarCommand command)
         {
