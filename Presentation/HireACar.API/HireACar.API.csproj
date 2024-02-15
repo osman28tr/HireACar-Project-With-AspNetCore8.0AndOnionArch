@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\HireACar.Insfrastructure\HireACar.Insfrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\HireACar.Persistance\HireACar.Persistance.csproj" />
+    <ProjectReference Include="..\..\Shared\HireACar.CrossCuttingConcerns\HireACar.CrossCuttingConcerns.csproj" />
   </ItemGroup>
 
   <ItemGroup>

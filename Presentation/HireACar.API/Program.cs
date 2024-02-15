@@ -1,4 +1,5 @@
 using HireACar.Application;
+using HireACar.CrossCuttingConcerns.Exceptions;
 using HireACar.Insfrastructure;
 using HireACar.Persistance;
 using HireACar.Persistance.Contexts;
@@ -32,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.ConfigureCustomExceptionMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();
