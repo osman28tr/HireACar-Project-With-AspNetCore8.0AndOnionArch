@@ -4,6 +4,7 @@ using HireACar.Persistance.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HireACar.Persistance.Migrations
 {
     [DbContext(typeof(HireACarContext))]
-    partial class HireACarContextModelSnapshot : ModelSnapshot
+    [Migration("20240215125023_add-column-IsDeletedAndIsApproved-in-car-table")]
+    partial class addcolumnIsDeletedAndIsApprovedincartable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
