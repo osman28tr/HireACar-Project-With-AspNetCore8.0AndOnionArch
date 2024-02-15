@@ -14,15 +14,11 @@ namespace HireACar.Application.CQRS.Handlers.CarHandlers.CommandHandlers
     public class CreatedCarCommandHandler:IRequestHandler<CreatedCarCommand>
     {
         private readonly ICarRepository _carRepository;
-        private readonly IFeatureRepository _featureRepository;
-        private readonly IPricingRepository _pricingRepository;
         private readonly IMapper _mapper;
 
-        public CreatedCarCommandHandler(ICarRepository carRepository, IFeatureRepository featureRepository, IPricingRepository pricingRepository, IMapper mapper)
+        public CreatedCarCommandHandler(ICarRepository carRepository, IMapper mapper)
         {
             _carRepository = carRepository;
-            _featureRepository = featureRepository;
-            _pricingRepository = pricingRepository;
             _mapper = mapper;
         }
 

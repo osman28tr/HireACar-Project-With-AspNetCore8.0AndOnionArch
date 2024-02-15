@@ -29,5 +29,12 @@ namespace HireACar.API.Controllers
                     Message = "Otomobiliniz yayına alınmak üzere admin'e gönderildi, en kısa sürede yayına alınacaktır."
                 });
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdatedCarCommand command)
+        {
+            await Mediator.Send(command);
+            return Ok(new { Message = "Otomobiliniz başarıyla güncellendi." });
+        }
     }
 }

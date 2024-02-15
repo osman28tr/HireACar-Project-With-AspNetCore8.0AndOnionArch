@@ -34,6 +34,11 @@ namespace HireACar.Application.Mappings.AutoMapper.CarMapping
 
             CreateMap<CreatedCarWithFeatureDto, CarFeature>().ReverseMap();
             CreateMap<CreatedCarWithPricingDto, CarPricing>().ReverseMap();
+
+            CreateMap<UpdatedCarCommand, Car>()
+                .ForMember(x => x.CarFeatures, src => src.MapFrom(x => x.Features.Select(x => new CarFeature() { FeatureId = x.FeatureId }).ToList()))
+                .ForMember(x => x.CarPricings, src => src.MapFrom(x => x.Pricings))
+                .ReverseMap();
         }
     }
 }

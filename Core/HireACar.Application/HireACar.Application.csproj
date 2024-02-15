@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\HireACar.CrossCuttingConcerns\HireACar.CrossCuttingConcerns.csproj" />
     <ProjectReference Include="..\HireACar.Domain\HireACar.Domain.csproj" />
   </ItemGroup>
 
