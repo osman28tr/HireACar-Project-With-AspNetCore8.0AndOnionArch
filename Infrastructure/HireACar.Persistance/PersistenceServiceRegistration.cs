@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HireACar.Application.Abstract;
+using HireACar.Persistance.Concrete;
 using HireACar.Persistance.Concrete.Repositories;
 
 namespace HireACar.Persistance
@@ -20,6 +21,7 @@ namespace HireACar.Persistance
             services.AddScoped<IFeatureRepository, FeatureRepository>();
             services.AddScoped<IPricingRepository, PricingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }
