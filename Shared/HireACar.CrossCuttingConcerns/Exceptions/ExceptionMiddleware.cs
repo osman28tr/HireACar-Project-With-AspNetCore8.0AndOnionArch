@@ -47,7 +47,19 @@ namespace HireACar.CrossCuttingConcerns.Exceptions
                     Instance = ""
                 }.ToString());
             }
+            else if (exception.GetType() == typeof(NotFoundException))
+            {
+                context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.NotFound);
 
+                return context.Response.WriteAsync(new BusinessProblemDetails
+                {
+                    Status = StatusCodes.Status404NotFound,
+                    Type = "https://example.com/probs/notfound",
+                    Title = "NotFound exception",
+                    Message = exception.Message,
+                    Instance = ""
+                }.ToString());
+            }
             context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.InternalServerError);
             
             return context.Response.WriteAsync(new InternalServerExceptionDetail()
