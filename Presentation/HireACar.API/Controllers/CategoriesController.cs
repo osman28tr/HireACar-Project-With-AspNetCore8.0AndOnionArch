@@ -30,5 +30,12 @@ namespace HireACar.API.Controllers
             await Mediator.Send(createdCategoryCommand);
             return Created("", new { message = "Blog kategorisi başarıyla eklendi." });
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdatedCategoryCommand updatedCategoryCommand)
+        {
+            await Mediator.Send(updatedCategoryCommand);
+            return Ok(new { message = "Blog kategorisi başarıyla güncellendi." });
+        }
     }
 }
