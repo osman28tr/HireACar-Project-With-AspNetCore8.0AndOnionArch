@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CQRS\Handlers\CategoryHandlers\CommandHandlers\" />
     <Folder Include="CQRS\Results\CarResults\CommandResults\" />
+    <Folder Include="CQRS\Results\CategoryResults\CommandResults\" />
     <Folder Include="CQRS\Results\WebSiteSettingResults\CommandResults\" />
   </ItemGroup>
 
