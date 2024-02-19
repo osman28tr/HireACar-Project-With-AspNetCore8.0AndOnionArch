@@ -8,6 +8,7 @@ namespace HireACar.Application.CQRS.Results.CategoryResults.QueryResults
 {
     public class GetListCategoryQueryResult
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

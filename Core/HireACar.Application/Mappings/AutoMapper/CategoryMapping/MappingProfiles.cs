@@ -19,6 +19,7 @@ namespace HireACar.Application.Mappings.AutoMapper.CategoryMapping
 
             CreateMap<CreatedCategoryCommand, Category>().ReverseMap();
             CreateMap<UpdatedCategoryCommand, Category>().ReverseMap();
+
         }
     }
 }

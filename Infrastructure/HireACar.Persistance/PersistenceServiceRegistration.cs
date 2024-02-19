@@ -15,13 +15,14 @@ namespace HireACar.Persistance
         public static IServiceCollection AddPersistanceRegistration(this IServiceCollection services)
         {
             services.AddScoped<IAboutRepository, AboutRepository>();
-            services.AddScoped<IWebSiteSettingRepository, WebSiteSettingRepository>();
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IFeatureRepository, FeatureRepository>();
             services.AddScoped<IPricingRepository, PricingRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IWebSiteSettingRepository, WebSiteSettingRepository>();
             return services;
         }
     }
