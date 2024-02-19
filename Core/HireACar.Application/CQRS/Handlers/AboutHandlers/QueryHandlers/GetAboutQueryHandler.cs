@@ -15,17 +15,17 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.QueryHandlers
 {
     public class GetAboutQueryHandler:IRequestHandler<GetAboutQuery,GetAboutQueryResult>
     {
-        private readonly IAboutRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public GetAboutQueryHandler(IAboutRepository repository, IMapper mapper)
+        public GetAboutQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
         public async Task<GetAboutQueryResult> Handle(GetAboutQuery request, CancellationToken cancellationToken)
         {
-            var about = await _repository.Query().FirstOrDefaultAsync();
+            var about = await _unitOfWork.Abouts.Query().FirstOrDefaultAsync();
             var mappingAbout = _mapper.Map<GetAboutQueryResult>(about);
             return mappingAbout;
         }
