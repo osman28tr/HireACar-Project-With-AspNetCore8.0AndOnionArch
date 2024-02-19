@@ -1,4 +1,5 @@
 ﻿using HireACar.API.Helpers;
+using HireACar.Application.CQRS.Commands.CategoryCommands;
 using HireACar.Application.CQRS.Queries.CategoryQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,13 @@ namespace HireACar.API.Controllers
         {
             var result = await Mediator.Send(new GetCategoryByIdQuery() { Id = id });
             return result == null ? NotFound(new { message = "Blog kategorisi bulunamadı." }) : Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] CreatedCategoryCommand createdCategoryCommand)
+        {
+            await Mediator.Send(createdCategoryCommand);
+            return Created("", new { message = "Blog kategorisi başarıyla eklendi." });
         }
     }
 }

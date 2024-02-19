@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using HireACar.Application.CQRS.Commands.CategoryCommands;
 using HireACar.Application.CQRS.Results.CategoryResults.QueryResults;
 using HireACar.Domain.Entities;
 
@@ -15,6 +16,8 @@ namespace HireACar.Application.Mappings.AutoMapper.CategoryMapping
         {
             CreateMap<GetListCategoryQueryResult, Category>().ReverseMap();
             CreateMap<GetCategoryByIdQueryResult, Category>().ReverseMap();
+
+            CreateMap<CreatedCategoryCommand, Category>().ReverseMap();
         }
     }
 }
