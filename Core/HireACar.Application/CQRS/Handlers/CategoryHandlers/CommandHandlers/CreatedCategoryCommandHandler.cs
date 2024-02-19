@@ -31,7 +31,7 @@ namespace HireACar.Application.CQRS.Handlers.CategoryHandlers.CommandHandlers
             }
             catch (Exception exception)
             {
-                throw new BusinessException(
+                throw new Exception(
                     $"Kategori oluşturma işlemi sırasında bir sorun oluştu. {exception.Message}");
             }
         }

@@ -3,37 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
 using HireACar.Application.Abstract;
 using HireACar.Application.CQRS.Commands.CategoryCommands;
 using HireACar.CrossCuttingConcerns.Exceptions;
-using HireACar.Domain.Entities;
 using MediatR;
 
 namespace HireACar.Application.CQRS.Handlers.CategoryHandlers.CommandHandlers
 {
-    public class UpdatedCategoryCommandHandler:IRequestHandler<UpdatedCategoryCommand>
+    public class DeletedCategoryCommandHandler : IRequestHandler<DeletedCategoryCommand>
     {
         private readonly ICategoryRepository _categoryRepository;
-        private readonly IMapper _mapper;
 
-        public UpdatedCategoryCommandHandler(ICategoryRepository categoryRepository, IMapper mapper)
+        public DeletedCategoryCommandHandler(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
-            _mapper = mapper;
         }
 
-        public async Task Handle(UpdatedCategoryCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeletedCategoryCommand request, CancellationToken cancellationToken)
         {
+            var category = await _categoryRepository.GetAsync(x => x.Id == request.Id);
+            if (category == null)
+            {
+                throw new NotFoundException("Kategori bulunamadı.");
+            }
             try
             {
-                var category = _mapper.Map<Category>(request);
-                await _categoryRepository.UpdateAsync(category);
+                await _categoryRepository.DeleteAsync(category);
             }
             catch (Exception exception)
             {
                 throw new Exception(
-                    $"Blog kategori güncelleme işlemi sırasında bir hata oluştu. {exception.Message}");
+                    $"Blog kategori silme işlemi sırasında bir hata oluştu.{exception.Message}");
             }
         }
     }

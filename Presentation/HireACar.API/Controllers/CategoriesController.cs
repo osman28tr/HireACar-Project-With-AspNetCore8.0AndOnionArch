@@ -37,5 +37,12 @@ namespace HireACar.API.Controllers
             await Mediator.Send(updatedCategoryCommand);
             return Ok(new { message = "Blog kategorisi başarıyla güncellendi." });
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await Mediator.Send(new DeletedCategoryCommand() { Id = id });
+            return Ok(new { message = "Blog kategorisi başarıyla silindi." });
+        }
     }
 }
