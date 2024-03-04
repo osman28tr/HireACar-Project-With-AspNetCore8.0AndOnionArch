@@ -36,7 +36,7 @@ namespace HireACar.CrossCuttingConcerns.Exceptions
             context.Response.ContentType = "application/json";
 
             if (exception.GetType() == typeof(BusinessException))
-                BusinessExceptionAsync(context, exception);
+               BusinessExceptionAsync(context, exception);
 
             else if (exception.GetType() == typeof(NotFoundException))
                 NotFoundExceptionAsync(context, exception);

@@ -15,4 +15,9 @@
     <ProjectReference Include="..\..\Core\HireACar.Application\HireACar.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MessageQueueServices\RabbitMQ\BackgroundServices\" />
+    <Folder Include="MessageQueueServices\RabbitMQ\Services\" />
+  </ItemGroup>
+
 </Project>
