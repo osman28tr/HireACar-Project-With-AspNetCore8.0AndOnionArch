@@ -30,5 +30,12 @@ namespace HireACar.API.Controllers
             await Mediator.Send(command);
             return Ok();
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] DeletedContactCommand command)
+        {
+            await Mediator.Send(command);
+            return Ok();
+        }
     }
 }

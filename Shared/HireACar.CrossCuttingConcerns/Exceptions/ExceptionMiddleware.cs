@@ -60,6 +60,19 @@ namespace HireACar.CrossCuttingConcerns.Exceptions
                     Instance = ""
                 }.ToString());
             }
+            else if (exception.GetType() == typeof(CustomInternalServerException))
+            {
+                context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.InternalServerError);
+
+                return context.Response.WriteAsync(new CustomInternalServerExceptionDetails()
+                {
+                    Status = StatusCodes.Status500InternalServerError,
+                    Type = "https://example.com/probs/internal",
+                    Title = "Internal exception",
+                    Message = exception.Message,
+                    Instance = ""
+                }.ToString());
+            }
             context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.InternalServerError);
             
             return context.Response.WriteAsync(new InternalServerExceptionDetail()
