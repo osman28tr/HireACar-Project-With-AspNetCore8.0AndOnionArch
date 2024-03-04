@@ -11,9 +11,9 @@ using HireACar.CrossCuttingConcerns.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace HireACar.Application.CQRS.Handlers.FooterHandlers
+namespace HireACar.Application.CQRS.Handlers.FooterHandlers.QueryHandlers
 {
-    public class GetFooterQueryHandler:IRequestHandler<GetFooterQuery,GetFooterQueryResult>
+    public class GetFooterQueryHandler : IRequestHandler<GetFooterQuery, GetFooterQueryResult>
     {
         private readonly IFooterRepository _footerRepository;
         private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ namespace HireACar.Application.CQRS.Handlers.FooterHandlers
         public async Task<GetFooterQueryResult> Handle(GetFooterQuery request, CancellationToken cancellationToken)
         {
             var footer = await _footerRepository.Query().FirstOrDefaultAsync();
-            if(footer == null)
+            if (footer == null)
                 throw new NotFoundException("Footer bilgisi bulunamadı.");
             try
             {
