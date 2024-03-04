@@ -23,5 +23,12 @@ namespace HireACar.API.Controllers
             await Mediator.Send(command);
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdatedContactCommand command)
+        {
+            await Mediator.Send(command);
+            return Ok();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace HireACar.Application.Mappings.AutoMapper.ContactMapping
             CreateMap<GetContactByIdQueryResult, Contact>().ReverseMap();
 
             CreateMap<CreatedContactCommand, Contact>().ReverseMap();
+            CreateMap<UpdatedContactCommand, Contact>().ReverseMap();
         }
     }
 }
