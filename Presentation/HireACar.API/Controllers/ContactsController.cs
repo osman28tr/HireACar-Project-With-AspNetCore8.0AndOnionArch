@@ -1,4 +1,5 @@
 ﻿using HireACar.API.Helpers;
+using HireACar.Application.CQRS.Commands.ContactCommands;
 using HireACar.Application.CQRS.Queries.ContactQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,13 @@ namespace HireACar.API.Controllers
         {
             var result = await Mediator.Send(new GetListContactQuery());
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreatedContactCommand command)
+        {
+            await Mediator.Send(command);
+            return Ok();
         }
     }
 }
