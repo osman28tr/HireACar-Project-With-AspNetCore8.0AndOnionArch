@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace HireACar.CrossCuttingConcerns.Exceptions
 {
@@ -35,47 +36,66 @@ namespace HireACar.CrossCuttingConcerns.Exceptions
             context.Response.ContentType = "application/json";
 
             if (exception.GetType() == typeof(BusinessException))
-            {
-                context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+                BusinessExceptionAsync(context, exception);
 
-                return context.Response.WriteAsync(new BusinessProblemDetails
-                {
-                    Status = StatusCodes.Status400BadRequest,
-                    Type = "https://example.com/probs/business",
-                    Title = "Business exception",
-                    Message = exception.Message,
-                    Instance = ""
-                }.ToString());
-            }
             else if (exception.GetType() == typeof(NotFoundException))
-            {
-                context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.NotFound);
+                NotFoundExceptionAsync(context, exception);
 
-                return context.Response.WriteAsync(new BusinessProblemDetails
-                {
-                    Status = StatusCodes.Status404NotFound,
-                    Type = "https://example.com/probs/notfound",
-                    Title = "NotFound exception",
-                    Message = exception.Message,
-                    Instance = ""
-                }.ToString());
-            }
             else if (exception.GetType() == typeof(CustomInternalServerException))
-            {
-                context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.InternalServerError);
+                CustomInternalServerExceptionAsync(context, exception);
+            else
+                OtherExceptionAsync(context, exception);
 
-                return context.Response.WriteAsync(new CustomInternalServerExceptionDetails()
-                {
-                    Status = StatusCodes.Status500InternalServerError,
-                    Type = "https://example.com/probs/internal",
-                    Title = "Internal exception",
-                    Message = exception.Message,
-                    Instance = ""
-                }.ToString());
-            }
+            return Task.CompletedTask;
+        }
+        
+        private async Task BusinessExceptionAsync(HttpContext context, Exception exception)
+        {
+            context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+
+            context.Response.WriteAsync(new BusinessProblemDetails
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Type = "https://example.com/probs/business",
+                Title = "Business exception",
+                Message = exception.Message,
+                Instance = ""
+            }.ToString());
+        }
+
+        private async Task NotFoundExceptionAsync(HttpContext context, Exception exception)
+        {
+            context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.NotFound);
+
+            context.Response.WriteAsync(new BusinessProblemDetails
+            {
+                Status = StatusCodes.Status404NotFound,
+                Type = "https://example.com/probs/notfound",
+                Title = "NotFound exception",
+                Message = exception.Message,
+                Instance = ""
+            }.ToString());
+        }
+
+        private async Task CustomInternalServerExceptionAsync(HttpContext context, Exception exception)
+        {
             context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.InternalServerError);
-            
-            return context.Response.WriteAsync(new InternalServerExceptionDetail()
+
+            context.Response.WriteAsync(new CustomInternalServerExceptionDetails()
+            {
+                Status = StatusCodes.Status500InternalServerError,
+                Type = "https://example.com/probs/internal",
+                Title = "Internal exception",
+                Message = exception.Message,
+                Instance = ""
+            }.ToString());
+        }
+
+        private async Task OtherExceptionAsync(HttpContext context, Exception exception)
+        {
+            context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.InternalServerError);
+
+            context.Response.WriteAsync(new InternalServerExceptionDetail()
             {
                 Status = StatusCodes.Status500InternalServerError,
                 Type = "https://example.com/probs/internal",
