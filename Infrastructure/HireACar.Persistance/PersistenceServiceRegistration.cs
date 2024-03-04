@@ -20,6 +20,7 @@ namespace HireACar.Persistance
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IFeatureRepository, FeatureRepository>();
+            services.AddScoped<IFooterRepository, FooterRepository>();
             services.AddScoped<IPricingRepository, PricingRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IWebSiteSettingRepository, WebSiteSettingRepository>();
