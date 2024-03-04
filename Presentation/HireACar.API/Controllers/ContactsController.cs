@@ -21,21 +21,21 @@ namespace HireACar.API.Controllers
         public async Task<IActionResult> Create([FromBody] CreatedContactCommand command)
         {
             await Mediator.Send(command);
-            return Ok();
+            return Created("", new { message = "Mesajınız başarıyla iletildi." });
         }
 
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdatedContactCommand command)
         {
             await Mediator.Send(command);
-            return Ok();
+            return Ok(new { message = "Mesajınız başarıyla güncellendi." });
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody] DeletedContactCommand command)
         {
             await Mediator.Send(command);
-            return Ok();
+            return Ok(new { message = "Mesajınız başarıyla silindi." });
         }
     }
 }

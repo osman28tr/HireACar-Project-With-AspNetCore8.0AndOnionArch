@@ -28,7 +28,7 @@ namespace HireACar.API.Controllers
         public async Task<IActionResult> Create([FromBody] CreatedFeatureCommand command)
         {
             await Mediator.Send(command);
-            return Ok(new { message = "Özellik başarıyla eklendi." });
+            return Created("", new { message = "Özellik başarıyla eklendi." });
         }
 
         [HttpPut]
