@@ -10,5 +10,6 @@ namespace HireACar.Application.CQRS.Queries.FeatureQueries
 {
     public class GetFeatureByIdQuery:IRequest<GetFeatureByIdQueryResult>
     {
+        public int Id { get; set; }
     }
 }

@@ -15,5 +15,12 @@ namespace HireACar.API.Controllers
             var result = await Mediator.Send(new GetListFeatureQuery());
             return Ok(new { message = "Özellikler başarıyla getirildi.", data = result });
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await Mediator.Send(new GetFeatureByIdQuery { Id = id });
+            return Ok(new { message = "Özellik başarıyla getirildi.", data = result });
+        }
     }
 }
