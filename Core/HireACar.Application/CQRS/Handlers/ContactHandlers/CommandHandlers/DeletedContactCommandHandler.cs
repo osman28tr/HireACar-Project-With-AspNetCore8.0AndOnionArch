@@ -15,18 +15,16 @@ namespace HireACar.Application.CQRS.Handlers.ContactHandlers.CommandHandlers
     public class DeletedContactCommandHandler : IRequestHandler<DeletedContactCommand>
     {
         private readonly IContactRepository _contactRepository;
-        private readonly IMapper _mapper;
-        public DeletedContactCommandHandler(IContactRepository contactRepository, IMapper mapper)
+        public DeletedContactCommandHandler(IContactRepository contactRepository)
         {
             _contactRepository = contactRepository;
-            _mapper = mapper;
         }
         public async Task Handle(DeletedContactCommand request, CancellationToken cancellationToken)
         {
             var contact = await _contactRepository.GetAsync(x => x.Id == request.Id);
             if (contact == null)
                 throw new NotFoundException("Silmek istediğiniz mesaj bilgisi bulunamadı.");
-
+            
             try { await _contactRepository.DeleteAsync(contact); }
             catch { throw new CustomInternalServerException("Silme işlemi sırasında bir hata oluştu."); }
         }
