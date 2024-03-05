@@ -28,7 +28,7 @@ namespace HireACar.API.Controllers
         public async Task<IActionResult> Create([FromBody] CreatedPricingCommand command)
         {
             await Mediator.Send(command);
-            return Ok(new { message = "Fiyatlandırma verisi eklendi." });
+            return Created("", new { message = "Fiyatlandırma verisi eklendi." });
         }
 
         [HttpPut]

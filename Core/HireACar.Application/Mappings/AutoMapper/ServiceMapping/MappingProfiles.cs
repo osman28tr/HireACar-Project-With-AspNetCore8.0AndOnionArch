@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using HireACar.Application.CQRS.Commands.ServiceCommands;
 using HireACar.Application.CQRS.Results.ServiceResults.QueryResults;
 using HireACar.Domain.Entities;
 
@@ -15,6 +16,9 @@ namespace HireACar.Application.Mappings.AutoMapper.ServiceMapping
         {
             CreateMap<GetListServiceQueryResult, Service>().ReverseMap();
             CreateMap<GetServiceByIdQueryResult, Service>().ReverseMap();
+
+            CreateMap<CreatedServiceCommand, Service>().ReverseMap();
+            CreateMap<UpdatedServiceCommand, Service>().ReverseMap();
         }
     }
 }
