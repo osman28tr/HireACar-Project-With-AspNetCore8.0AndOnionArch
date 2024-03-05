@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using HireACar.Application.CQRS.Commands.SocialMediaCommands;
 using HireACar.Application.CQRS.Results.SocialMediaResults.QueryResults;
 using HireACar.Domain.Entities;
 
@@ -15,6 +16,9 @@ namespace HireACar.Application.Mappings.AutoMapper.SocialMediaMapping
         {
             CreateMap<GetListSocialMediaQueryResult, SocialMedia>().ReverseMap();
             CreateMap<GetSocialMediaByIdQueryResult, SocialMedia>().ReverseMap();
+
+            CreateMap<CreatedSocialMediaCommand, SocialMedia>().ReverseMap();
+            CreateMap<UpdatedSocialMediaCommand, SocialMedia>().ReverseMap();
         }
     }
 }
