@@ -31,7 +31,7 @@ namespace HireACar.Persistance.Concrete.Repositories
             return _context.Set<T>();
         }
 
-        public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> predicate)
+        public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>>? predicate)
         {
             return await _context.Set<T>().ToListAsync();
         }

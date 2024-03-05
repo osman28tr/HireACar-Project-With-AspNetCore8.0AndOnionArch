@@ -18,11 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Results\CarResults\CommandResults\" />
-    <Folder Include="CQRS\Results\CategoryResults\CommandResults\" />
-    <Folder Include="CQRS\Results\ContactResults\CommandResults\" />
-    <Folder Include="CQRS\Results\FeatureResults\CommandResults\" />
-    <Folder Include="CQRS\Results\WebSiteSettingResults\CommandResults\" />
+    <Folder Include="CQRS\Commands\LocationCommands\" />
+    <Folder Include="CQRS\Handlers\LocationHandlers\CommandHandlers\" />
   </ItemGroup>
 
 </Project>
