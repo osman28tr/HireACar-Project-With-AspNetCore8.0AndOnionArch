@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using HireACar.Application.Abstract;
 using HireACar.Application.CQRS.Commands.AboutCommands;
+using HireACar.Application.CQRS.Results.AboutResults.CommandResults;
 using MediatR;
 
 namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
 {
-    public class UpdatedAboutCommandHandler : IRequestHandler<UpdatedAboutCommand>
+    public class UpdatedAboutCommandHandler : IRequestHandler<UpdatedAboutCommand,UpdatedAboutCommandResult>
     {
         private readonly IAboutRepository _repository;
         private readonly IMapper _mapper;
@@ -19,10 +20,13 @@ namespace HireACar.Application.CQRS.Handlers.AboutHandlers.CommandHandlers
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task Handle(UpdatedAboutCommand request, CancellationToken cancellationToken)
+        public async Task<UpdatedAboutCommandResult> Handle(UpdatedAboutCommand request, CancellationToken cancellationToken)
         {
             var about = await _repository.GetAsync(x => x.Id == request.Id);
-            await _repository.UpdateAsync(about);
+            var mappingAbout = _mapper.Map(request, about);
+            var updatedAbout = await _repository.UpdateAsync(mappingAbout);
+            var resultMapping = _mapper.Map<UpdatedAboutCommandResult>(updatedAbout);
+            return resultMapping;
         }
     }
 }

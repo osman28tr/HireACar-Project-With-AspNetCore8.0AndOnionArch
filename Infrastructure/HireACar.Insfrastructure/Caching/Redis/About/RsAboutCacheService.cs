@@ -30,6 +30,17 @@ namespace HireACar.Insfrastructure.Caching.Redis.About
             await _distributedCache.SetStringAsync($"about:{addedAboutCommandResult.Id}", jsonAbout);
         }
 
+        public async Task UpdateCacheAsync(UpdatedAboutCommandResult updatedAboutCommandResult)
+        {
+			string jsonAbout = JsonConvert.SerializeObject(updatedAboutCommandResult);
+			await _distributedCache.SetStringAsync($"about:{updatedAboutCommandResult.Id}", jsonAbout);
+		}
+
+        public async Task DeleteCacheAsync(int key)
+        {
+	        await _distributedCache.RemoveAsync($"about:{key}");
+        }
+
         public async Task<GetAboutQueryResult> GetCacheAsync()
         {
             int id = _aboutRepository.GetAllAsync(null).Result.FirstOrDefault().Id;

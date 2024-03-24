@@ -14,5 +14,7 @@ namespace HireACar.Insfrastructure.Caching.Redis.About.Abstract
     {
         Task AddCacheAsync(AddedAboutCommandResult addedAboutCommandResult);
         Task<GetAboutQueryResult> GetCacheAsync();
+        Task UpdateCacheAsync(UpdatedAboutCommandResult updatedAboutCommandResult);
+        Task DeleteCacheAsync(int key);
     }
 }
