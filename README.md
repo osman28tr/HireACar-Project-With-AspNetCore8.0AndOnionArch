@@ -3,7 +3,7 @@
 
 <h3>1. Used Technologies:</h3>
 Asp.Net Core 8 API, Asp.Net 8.0 Mvc , EntityFrameworkCore, Onion Architecture,
-Generic Repository Design Pattern, CQRS Design Pattern, UnitOfWork Design Pattern,AutoMapper,JWT,Redis Caching,Dtos,Swagger,Postman <br><br>
+Generic Repository Design Pattern, CQRS Design Pattern, UnitOfWork Design Pattern,AutoMapper,SignalR,JWT,Redis Caching,Dtos,Swagger,Postman <br><br>
 
 <h3>2. General Outlines of the Architecture Used in the Project</h3>
 <img src="Presentation/HireACar.API/wwwroot/ProjectArch/HireACarArch3.PNG" height="400px" width="650px">
