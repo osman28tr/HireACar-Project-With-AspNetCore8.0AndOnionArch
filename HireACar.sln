@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireACar.UI", "Frontends\Hi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{5CFA9E25-4FD8-4F16-A98A-74ED98527E00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireACar.CrossCuttingConcerns", "Shared\HireACar.CrossCuttingConcerns\HireACar.CrossCuttingConcerns.csproj", "{9F4BE5AC-9575-4ED6-B418-240F60B7E995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HireACar.CrossCuttingConcerns", "Shared\HireACar.CrossCuttingConcerns\HireACar.CrossCuttingConcerns.csproj", "{9F4BE5AC-9575-4ED6-B418-240F60B7E995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireACar.Dto", "Frontends\HireACar.Dto\HireACar.Dto.csproj", "{E43576F9-1ECB-4141-93B3-40B0DBC23432}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{9F4BE5AC-9575-4ED6-B418-240F60B7E995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F4BE5AC-9575-4ED6-B418-240F60B7E995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F4BE5AC-9575-4ED6-B418-240F60B7E995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43576F9-1ECB-4141-93B3-40B0DBC23432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43576F9-1ECB-4141-93B3-40B0DBC23432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43576F9-1ECB-4141-93B3-40B0DBC23432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43576F9-1ECB-4141-93B3-40B0DBC23432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{0FBC813D-D1A6-4D9A-BB48-528C19BE9FC9} = {C5719D52-CED5-4AB5-9D71-63945D804C03}
 		{640C0E08-7155-4FF0-9D37-E5CA677C3CC4} = {DEC7531F-05C0-4317-85C4-D6018A189F16}
 		{9F4BE5AC-9575-4ED6-B418-240F60B7E995} = {5CFA9E25-4FD8-4F16-A98A-74ED98527E00}
+		{E43576F9-1ECB-4141-93B3-40B0DBC23432} = {DEC7531F-05C0-4317-85C4-D6018A189F16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C83D3B08-B8A9-4E15-947A-9E6D5150D216}

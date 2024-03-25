@@ -3,5 +3,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
-<h1>About sayfası</h1>
+@await Component.InvokeAsync("AboutUsComponentPartial")
+
+@await Component.InvokeAsync("BecomeADriverComponentPartial")
+
+@await Component.InvokeAsync("TestimonialComponentPartial")
 
